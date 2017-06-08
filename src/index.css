@@ -24,3 +24,7 @@ input {
 #inputlist {
   display: inline-flex;
 }
+
+/*#oflplaceholderbutton {*/
+  /*!*display: inline-block;  CLEAR BUTTON PLACEHOLDER *!*/
+/*}*/
