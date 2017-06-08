@@ -30,7 +30,8 @@ class MaterialForm extends React.Component {
     }
 
     render() {
-        var materials = this.props.materials.map((material)=> {
+        var materials = this.props.materials.map((material, index)=> {
+            index
             return (
                 <div>
                     {material.vendor}
@@ -38,7 +39,7 @@ class MaterialForm extends React.Component {
         });
             return (
                 <div id="ofl-header">
-                    <h1></h1>
+                    <h1>Order For Later</h1>
                         <div id="inputlist">
                             <input id="vendor" type="text" ref="vendor"  placeholder="placeholder" />
                             <input id="lotnumber" type="text" ref="lotnumber" placeholder="placeholder" />
@@ -47,7 +48,7 @@ class MaterialForm extends React.Component {
                             <button type="button" onClick={this.addMaterial.bind(this)}>add</button>
                             <button type="button" onClick={this.clearForm.bind(this)} >clear</button>
                         </div>
-                    <div>
+                    <div id="newMaterial">
                         {materials}
                     </div>
                     <div id="oflfooter">

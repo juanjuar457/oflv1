@@ -23,8 +23,14 @@ input {
 
 #inputlist {
   display: inline-flex;
+
 }
 
+#newMaterial {
+  padding: 10px;
+  margin: 10px;
+  background-color: grey;
+}
 /*#oflplaceholderbutton {*/
   /*!*display: inline-block;  CLEAR BUTTON PLACEHOLDER *!*/
 /*}*/

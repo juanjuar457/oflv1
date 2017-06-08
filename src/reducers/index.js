@@ -13,7 +13,7 @@ export const oflMaterialReducer = (state=initialState, action) => {
 
     return state;
 };
-//>>>>>>>>>>6/7  NEXT IS TO MAKE THE ACTION + ACTION CREATORS!
+
 
 
 //structure used on 21 to 46 is the same structure every reducer
