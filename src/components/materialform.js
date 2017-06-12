@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import OflModal from './oflmodal';
 import {addMaterial} from '../actions/index';
 
 class MaterialForm extends React.Component {
     constructor(props){
         super(props);
+        this.state = { isOpen: false };
+    }
 
+    toggleModal = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
     }
 
     addMaterial() {
@@ -42,11 +48,18 @@ class MaterialForm extends React.Component {
                     <h1>Order For Later</h1>
                         <div id="inputlist">
                             <input id="vendor" type="text" ref="vendor"  placeholder="placeholder" />
-                            <input id="lotnumber" type="text" ref="lotnumber" placeholder="placeholder" />
-                            <input id="units" type="text" ref="units" placeholder="placeholder" />
-                            <input id="quantity" type="text" ref="quantity" placeholder="placeholder" />
+                            <input id="quantity" type="text" ref="lotnumber" placeholder="placeholder" />
+                            <input id="productName" type="text" ref="units" placeholder="placeholder" />
+                            <input id="catalogNumber" type="text" ref="quantity" placeholder="placeholder" />
                             <button type="button" onClick={this.addMaterial.bind(this)}>add</button>
                             <button type="button" onClick={this.clearForm.bind(this)} >clear</button>
+                            <button onClick={this.toggleModal}>
+                                Open the modal
+                            </button>
+                            <OflModal show={this.state.isOpen}
+                                   onClose={this.toggleModal}>
+                                Here's some content for the modal
+                            </OflModal>
                         </div>
                     <div id="newMaterial">
                         {materials}
