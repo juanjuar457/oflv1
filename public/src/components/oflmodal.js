@@ -32,9 +32,9 @@ class OflModal extends React.Component {
 
         return (
             <div className="backdrop" style={backdropStyle}>
-                <div id="modal" style={modalStyle}>
+                <div className="modal" style={modalStyle}>
                     {this.props.children}
-                        Hello modal fuck
+
                     <div className="footer">
                         <button onClick={this.props.onClose}>
                             Close
@@ -46,11 +46,10 @@ class OflModal extends React.Component {
     }
 }
 
-//** warning message when trying to use, deptrecated since React 15.5.0
-// OflModal.propTypes = {
-//     onClose: React.PropTypes.func.isRequired,
-//     show: React.PropTypes.bool,
-//     children: React.PropTypes.node
-// };
+OflModal.propTypes = {
+    onClose: React.PropTypes.func.isRequired,
+    show: React.PropTypes.bool,
+    children: React.PropTypes.node
+};
 
 export default connect()(OflModal);

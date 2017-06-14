@@ -12,8 +12,8 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-
-
+//START HERE WITH REDUCERS!!
+//>>>> when adding the router it will go here!<<<<<<<<
 
 //star with redux store then add the submit function
 // main goal would be to record the input and change the redux state.

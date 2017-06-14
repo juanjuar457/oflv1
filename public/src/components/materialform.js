@@ -23,56 +23,65 @@ class MaterialForm extends React.Component {
             productName: this.refs.productName.value,
             catalogNumber: this.refs.catalogNumber.value,
             units: this.refs.units.value,
+            quantity: this.refs.quantity.value
         };
         this.props.dispatch(addMaterial(material));
         this.clearForm();
     }
 
     clearForm() {
+        console.log(this.refs.vendor.value);
         this.refs.vendor.value = "";
         this.refs.quantity.value = "";
-        this.refs.productName.value = "";
-        this.refs.catalogNumber.value = "";
-        this.refs.units.value = "";
+        this.refs.productName.productName = "";
+        this.refs.quantity.value = "";
 
     }
 
     sendData() {
-        request.get('/')
+        request .get('/materials')
             .end(function (err, res){
-                console.log("ajax yo");  //oh snap it works..
+                console.log(res);
             });
+        // $.ajax( {
+        // url: "http://localhost:8080/materials",
+        // dataType: "json",
+        // type: "GET",
+        // success: function (data) {
+        //         console.log(data);
+        //     }
+        // });
     }
 
     render() {
-        var materials = this.props.materials.map((material, index, key)=> {
-           // let key = {index}
+        var materials = this.props.materials.map((material, index)=> {
+            index
             return (
                 <div>
                     {material.vendor}
                     {material.quantity}
                     {material.productName}
-                    {material.productName}
-                    {material.productName}
-
                 </div>)
         });
             return (
                 <div id="ofl-header">
                     <h1>Order For Later</h1>
                         <div id="inputlist">
-                            <input id="vendor" type="text" ref="vendor"  placeholder="Enter Vendor" />
-                            <input id="quantity" type="text" ref="quantity" placeholder="Enter Quantity" />
-                            <input id="productName" type="text" ref="productName" placeholder="Enter Product Name" />
-                            <input id="catalogNumber" type="text" ref="catalogNumber" placeholder="Enter Catalog Numnber" />
-                            <input id="units" type="text" ref="units" placeholder="Enter Units" />
-                            <button type="button" onClick={this.addMaterial.bind(this)}>add</button>
+                            <input id="vendor" type="text" ref="vendor"  placeholder="placeholder" />
+                            <input id="quantity" type="text" ref="quantity" placeholder="placeholder" />
+                            <input id="productName" type="text" ref="productName" placeholder="placeholder" />
+                            <input id="catalogNumber" type="text" ref="CatalogNumber" placeholder="placeholder" />
+                            <input id="catalogNumber" type="text" ref="CatalogNumber" placeholder="placeholder" />
+                            <input id="catalogNumber" type="text" ref="CatalogNumber" placeholder="placeholder" />
+                            <button type="button" onClick={this.sendData.bind(this)}>add</button>
                             <button type="button" onClick={this.clearForm.bind(this)} >clear</button>
-                            <button type="button" onClick={this.sendData.bind(this)} >clear</button>
                             <button onClick={this.toggleModal}>
                                 Open the modal
                             </button>
-                            <OflModal show={this.state.isOpen} onClose={this.toggleModal}> </OflModal>
+                            <OflModal show={this.state.isOpen}
+                                   onClose={this.toggleModal}>
+                                Here's some content for the modal
+                            </OflModal>
                         </div>
                     <div id="newMaterial">
                         {materials}
@@ -86,7 +95,7 @@ class MaterialForm extends React.Component {
 }
 MaterialForm.defaultProps = {
     title: 'Order For Later'
-};
+}
 
 const mapStateToProps = state => ({
     materials: state.materials
@@ -94,14 +103,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(MaterialForm);
 
-//unused ajax call
-// $.ajax( {
-// url: "http://localhost:8080/materials",
-// dataType: "json",
-// type: "GET",
-// success: function (data) {
-//         console.log(data);
-//     }
-// });
+
 
 

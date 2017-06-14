@@ -1,6 +1,6 @@
 import {createStore} from 'redux'
 
-import {oflMaterialReducer} from './reducers/index';
+import {oflMaterialReducer} from './reducers';
 
 export default createStore(oflMaterialReducer); //redux function
 

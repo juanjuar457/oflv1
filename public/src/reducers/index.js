@@ -1,4 +1,4 @@
-import * as actions from '../actions/index';
+import * as actions from '../actions';
 
 const initialState = {
     materials: [{ name: 'Example material 1'}] }; //problem could be here, array of obj inside obj?
